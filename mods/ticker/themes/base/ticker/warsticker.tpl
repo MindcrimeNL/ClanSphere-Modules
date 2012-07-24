@@ -1,0 +1,1 @@
+{war:icon} {war:opponent} {if:win}<font color="green">{war:score1}</font>-<font color="red">{war:score2}</font>{stop:win}{if:loss}<font color="red">{war:score1}</font>-<font color="green">{war:score2}</font>{stop:loss}{if:draw}<font color="blue">{war:score1}</font>-<font color="blue">{war:score2}</font>{stop:draw} {war:icon_result}

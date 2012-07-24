@@ -1,0 +1,1 @@
+{war:icon} vs. {war:opponent} {war:date}

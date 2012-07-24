@@ -1,0 +1,1 @@
+{loop:bans}<img src="{bans:ban_image}" width="20px" height="20px" alt="{bans:ban_name}" title="{bans:ban_name}" style="margin-left: 2px; vertical-align: middle; border-bottom: 2px {bans:ban_color} ridge;" />{bans:ban_extra}{stop:bans}

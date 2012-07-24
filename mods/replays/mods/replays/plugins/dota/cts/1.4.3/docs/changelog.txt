@@ -1,0 +1,173 @@
+﻿---------------------------------------
+| CTS Dota Parser 1.4.3 (CDP) - Changelog
+---------------------------------------
+---------------------------------------
+| 1.4.3 - Version update
+| Date: 14.5.2011
+| Author: Seven ( zabkar@gmail.com )
+---------------------------------------
+Features:
+ > Added 6.71 & 6.72 data and images
+ ---------------------------------------
+| 1.4.2 - Version update
+| Date: 26.12.2010
+| Author: Seven ( zabkar@gmail.com )
+---------------------------------------
+Features:
+ > Added 6.70 data and images
+---------------------------------------
+| 1.4.1 - Version update
+| Date: 10.11.2010
+| Author: Seven ( zabkar@gmail.com )
+---------------------------------------
+Features:
+ > Added 6.69c data and images
+---------------------------------------
+| 1.4 - 6.68, Switch & Debugging
+| Date: 16.8.2010
+| Author: Seven ( zabkar@gmail.com )
+---------------------------------------
+Features:
+ > 6.68 images / map data
+ > Handles new CM mode 3/2 split
+ > Added support for Switch
+ > Added an AUTO mode for determening the winner, check
+   view_replay.php and upload_replay.php to get the idea
+   on how to implement it. It works most of the time, only
+   fails when the saver leaves unexpectedly or prematurely.
+ > Added POTM Arrow Accuracy data (see "Show more" in a replay with potm)
+ > Added Pudge Hook Accuracy data (see "Show more" in a replay with pudge)
+ > Added Player Leaving information (see "Show more" in a replay)
+ 
+Various:
+ > Tweaked leveling and skill level accuracy for
+   duplicated actions non-owned stats skilling.
+
+Bugs:
+ > Fixed a bug with skilling non-owned or SP mode
+   owned morphing heroes (ie. Batrider, KOTL) 
+ > Fixed certain wrong skill IDs in 6.67, 6.68 XML files
+   for Panda, Tiny, Leoric, Gorgon, Lanaya, Ursa, Enigma 
+   and Doom Bringer
+ > Some other minor bugs.
+---------------------------------------
+| 1.3.1 - Version update
+| Date: 1.4.2010
+| Author: Seven ( zabkar@gmail.com )
+---------------------------------------
+Features:
+ > Added 6.67c, 6.66 data and images
+
+---------------------------------------
+| 1.3 - 6.65, SP & Debugging
+| Date: 7.1.2010
+| Author: Seven ( zabkar@gmail.com )
+---------------------------------------
+Features:
+ > 6.65 images / map data
+ > Now properly remaps names in SP mode
+ 
+Various:
+ > Added some base code for handling various
+   drafting modes such as CD and CM, but not
+   finished yet due to 6.65's buggy replay
+   data serving.
+
+Bugs:
+ > Fixed an issue with SD mode picks before 15sec
+ > Changed all "Batrider (firefly)" names
+   to "Batrider" in 6.60 to 6.65 xml files
+ > Changed all "Flesh Golem" names 
+   to "Undying" in 6.59 to 6.65 xml files
+ > Fixed an issue with failed handling of
+   random hero picks in CM mode.
+---------------------------------------
+| 1.2.2 - Debugging skilling & 6.64
+| Date: 26.10.2009
+| Author: Seven ( zabkar@gmail.com )
+---------------------------------------
+Bugs:
+ > Added delayed skilling for handling first skills
+ > Fixed an error caused by 6.64 & skills
+---------------------------------------
+| 1.2.1 - Handling morphers
+| Date: 7.10.2009
+| Author: Seven ( zabkar@gmail.com )
+---------------------------------------
+Bugs:
+ > Fixed a problem with 'morphing' heroes
+ 
+---------------------------------------
+| 1.2 - Hero - Player - Skill handling
+| Date: 6.10.2009
+| Author: Seven ( zabkar@gmail.com )
+---------------------------------------
+Features:
+ > 6.63 images / map data
+ 
+Various:
+ > Recoded the way Hero - Player - Skills are related
+
+Bugs:
+ > Fixed various skill assignment bugs
+ 
+---------------------------------------
+| 1.1.3 - Ban / Pick duplication
+| Date: 10.9.2009
+| Author: Seven ( zabkar@gmail.com )
+---------------------------------------
+Bugs:
+ > Fixed an issue with duplicated ban / pick packets
+
+---------------------------------------
+| 1.1.2 - 64 Bit memory / 6.61
+| Date: 7.7.2009
+| Author: Seven ( zabkar@gmail.com )
+---------------------------------------
+Features:
+ > The script now tries to detect the map version
+   and uses the appropriate .xml file from the maps/ folder.
+ > Added some config options to tools.php regarding version handling
+ > 6.61 - Weaver's remade ability
+
+Various:
+ > Disabled download logging by default. (Channged LOG_DOWNLOADS to false in download.php)
+
+Cosmetics:
+ > Unified player colors.
+
+Bugs:
+ > Increased memory_limit to work with 64 bit *nix systems.
+ > Added some extra level 25 limit detection.
+
+
+---------------------------------------
+| 1.1.1 - Zlib decompression debugging
+| Date: 19.6.2009
+| Author: Seven ( zabkar@gmail.com )
+---------------------------------------
+Bugs:
+ > Tweaked zlib decompressing to allow parsing of modified replays
+
+---------------------------------------
+| 1.1 - 6.60 Updates
+| Date: 12.6.2009
+| Author: Seven ( zabkar@gmail.com )
+---------------------------------------
+Features:
+ > Added 6.60 XML data to the /maps folder
+
+Various:
+ > Tweaked the JS / HTML display
+
+Bugs:
+ > Proper parsing for Batrider's two hero ID internals
+ > Fixed Invoker leveling / skills
+ > Fixed XML Parser oddities 
+
+---------------------------------------
+| 1.0 - First released version
+| Date: 27.2.2009
+| Author: Seven ( zabkar@gmail.com ) 
+---------------------------------------
+ > Clean up

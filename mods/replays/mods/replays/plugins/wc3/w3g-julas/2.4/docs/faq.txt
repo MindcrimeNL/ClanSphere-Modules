@@ -1,0 +1,13 @@
+* It doesn't work at all! What is wrong?
+First of all check if you have created database and replays directories and if
+their names are correct (the same as in example.php). If the script still
+doesn't work make sure that PHP has zlib support.
+
+* I get some "Notice: (...)" messages. How can I get rid of them?
+Set error reporting to the default value in your php.ini
+error_reporting  =  E_ALL & ~E_NOTICE
+Or add the following line to example.php:
+error_reporting(E_ALL ^ E_NOTICE);
+
+* Can I use the parser on my site without any restrictions?
+Yes, as long as you put a link to the parser's homepage on your site.
