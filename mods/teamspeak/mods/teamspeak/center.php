@@ -28,7 +28,7 @@ for($run=0; $run<$tss_loop; $run++) {
 		continue;
 	}
 	/* try login, because of possible ban for anonymous connections */
-	if (!$tss->login($cs_tss[$run]['teamspeak_admin'], cs_crypt(base64_decode($cs_tss[$run]['teamspeak_adminpw']), $cs_main['crypt_key']))
+	if (!$tss->login($cs_tss[$run]['teamspeak_admin'], cs_crypt(base64_decode($cs_tss[$run]['teamspeak_adminpw']), $cs_main['crypt_key'])))
 	{
 		/* we can try for TS2, but for TS3 stop */
 		if ($cs_tss[$run]['teamspeak_admin'] == VERSION_TS3)
