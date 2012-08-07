@@ -1,6 +1,6 @@
 <?php
 // ClanSphere 2010 - www.clansphere.net
-// $Id: access.php 4120 2010-06-15 15:29:39Z hajo $
+// $Id$
 
 $axx_file['create']    = 3;
 $axx_file['edit']    = 3;

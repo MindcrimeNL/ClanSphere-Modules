@@ -1,6 +1,6 @@
 <?php
 // ClanSphere 2010 - www.clansphere.net
-// $Id: remove.php 4611 2010-11-01 13:02:52Z Fr33z3m4n $
+// $Id$
 require('mods/replays/plugins/plugins.php');
 
 $cs_lang = cs_translate('replays');

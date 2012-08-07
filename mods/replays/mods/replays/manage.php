@@ -1,6 +1,6 @@
 <?php
 // ClanSphere 2010 - www.clansphere.net
-// $Id: manage.php 4738 2011-01-03 17:59:21Z duRiel $
+// $Id$
 
 $cs_lang = cs_translate('replays');
 

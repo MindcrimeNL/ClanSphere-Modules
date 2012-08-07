@@ -1,6 +1,6 @@
 <?php
 // ClanSphere 2010 - www.clansphere.net
-// $Id: navlist.php 4633 2010-11-10 19:25:06Z hajo $
+// $Id$
 require('mods/replays/plugins/plugins.php');
 
 $cs_lang = cs_translate('replays');

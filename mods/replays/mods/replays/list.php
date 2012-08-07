@@ -1,6 +1,6 @@
 <?php
 // ClanSphere 2010 - www.clansphere.net
-// $Id: list.php 4650 2010-11-15 14:59:47Z hajo $
+// $Id$
 
 $cs_lang = cs_translate('replays');
 

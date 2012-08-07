@@ -1,6 +1,6 @@
 <?php
 // ClanSphere 2010 - www.clansphere.net
-// $Id: create.php 4120 2010-06-15 15:29:39Z hajo $
+// $Id$
 
 require('mods/replays/plugins/plugins.php');
 
