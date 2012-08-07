@@ -38,7 +38,7 @@ if ($system['cups_system'] == CS_CUPS_TYPE_TEAMS) {
 $cs_sort[5] = 'cm.cupmatches_loserbracket ASC, cm.cupmatches_match ASC';
 $cs_sort[6] = 'cm.cupmatches_loserbracket DESC, cm.cupmatches_match ASC';
 
-$sort = empty($_GET['sort']) ? 5 : $_GET['sort'];
+$sort = empty($_GET['sort']) ? 5 : (int) $_GET['sort'];
 $order = $cs_sort[$sort];
 
 $tables  = 'cupmatches cm';
