@@ -52,6 +52,13 @@ function replays_plugins_version_sc2($version, $build)
 		19679 => '1.4.0', // according to wiki page 19678
 		19776 => '1.4.1',
 		20141 => '1.4.2',
+		21029 => '1.4.3',
+		// 21029 => '1.4.3 BU',
+		22418 => '1.4.4',
+	  22612 => '1.5.0',
+	  22763 => '1.5.1',
+	  22875 => '1.5.2',
+	  23260 => '1.5.3',
 	);
 	if (array_key_exists(intval($build), $builds))
 		return $builds[intval($build)];

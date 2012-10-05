@@ -1,5 +1,5 @@
 ﻿---------------------------------------
-| CTS Dota Parser 1.4.3 (CDP) - Readme
+| CTS Dota Parser 1.4.4 (CDP) - Readme
 ---------------------------------------
 Author: Luka Zabkar / Seven
 Mail: zabkar@gmail.com

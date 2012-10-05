@@ -1,6 +1,13 @@
 ﻿---------------------------------------
-| CTS Dota Parser 1.4.3 (CDP) - Changelog
+| CTS Dota Parser 1.4.4 (CDP) - Changelog
 ---------------------------------------
+---------------------------------------
+| 1.4.4 - Version update
+| Date: 6.1.2012
+| Author: Seven ( zabkar@gmail.com )
+---------------------------------------
+Features:
+ > Added 6.73 data and images
 ---------------------------------------
 | 1.4.3 - Version update
 | Date: 14.5.2011

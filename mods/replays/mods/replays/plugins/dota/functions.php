@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('W3G_CTS_VERSION'))
-	define('W3G_CTS_VERSION', '1.4.3');
+	define('W3G_CTS_VERSION', '1.4.4');
 
 /* we need these files to be able to unserialize the classes correctly */
 require_once('mods/replays/plugins/dota/cts/'.constant('W3G_CTS_VERSION').'/config.php'); 
