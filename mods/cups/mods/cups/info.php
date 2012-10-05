@@ -43,7 +43,7 @@ $cs_lang = cs_translate('cups');
 
 $mod_info['name']    = $cs_lang['mod_name'];
 $mod_info['version']  = '1.0';
-$mod_info['released']  = '2012-01-04';
+$mod_info['released']  = '2012-10-05';
 $mod_info['creator'] = 'Mindcrime';
 $mod_info['team']    = 'Geh aB Clan';
 $mod_info['url']    = 'www.gab-clan.org';
