@@ -21,3 +21,22 @@
     <td class="leftb">{cups:nextmatch}</td>
   </tr>{stop:cups}
 </table>
+<br />
+
+<table class="forum" cellpadding="0" cellspacing="{page:cellspacing}" style="width:{page:width}">
+  <tr>
+    <td class="leftc">{lang:took_part_in_cups}</td>
+  </tr>
+</table>
+<br />
+
+<table class="forum" cellpadding="0" cellspacing="{page:cellspacing}" style="width:{page:width}">
+  <tr>
+    <td class="headb">{lang:game}</td>
+    <td class="headb">{lang:name}</td>
+  </tr>{loop:cups_played}
+  <tr>
+    <td class="leftb">{if:gameicon_exists}<img src="{page:path}uploads/games/{cups_played:games_id}.gif" alt="" />{stop:gameicon_exists}</td>
+    <td class="leftb"><a href="{url:cups_view:id={cups_played:cups_id}}">{cups_played:cups_name}</a></td>
+  </tr>{stop:cups_played}
+</table>

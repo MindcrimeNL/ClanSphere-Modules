@@ -44,7 +44,7 @@ $cells .= 'cm.squad1_id AS squad1_id, cm.squad2_id AS squad2_id';
 
 $data = array();
 
-$data['get']['message'] = cs_getmsg();
+$data['get']['message'] = ''; // cs_getmsg();
 $data['match'] = cs_sql_select(__FILE__,$tables,$cells,'cm.cupmatches_id = ' . $match_id);
 
 if ($account['access_cups'] < $data['match']['cups_access'] || $data['match']['cups_access'] == 0)
@@ -104,13 +104,15 @@ else
 }
 
 
-$nothingyet = $data['match']['cupmatches_winner'] == CS_CUPS_TEAM_UNKNOWN ? true : false;
+$nothingyet = ($data['match']['cupmatches_winner'] == CS_CUPS_TEAM_UNKNOWN) ? true : false;
 $data['if']['showscore'] = empty($nothingyet) ? true : false;
 
 $data['match']['status'] = empty($data['match']['cupmatches_accepted1']) || empty($data['match']['cupmatches_accepted2']) ? $cs_lang['open'] : $cs_lang['closed'];
 $data['match']['time1'] = empty($data['match']['cupmatches_accepted_time1']) ? '-' : date('Y-m-d @H:i', $data['match']['cupmatches_accepted_time1']);
 $data['match']['time2'] = empty($data['match']['cupmatches_accepted_time2']) ? '-' : date('Y-m-d @H:i', $data['match']['cupmatches_accepted_time2']);
 $data['if']['adminconfirm'] = ($account['access_cups'] >= 4);
+$data['if']['confirm1'] = empty($data['match']['cupmatches_accepted1']) ? false : true;
+$data['if']['confirm2'] = empty($data['match']['cupmatches_accepted2']) ? false : true;
 
 if ($system['cups_system'] == CS_CUPS_TYPE_TEAMS) {
   $cond = 'users_id = "' . $account['users_id'] . '" AND squads_id = "' . $data['match']['squad1_id'] . '"';
@@ -144,8 +146,11 @@ if ((!empty($squad1_member) OR !empty($squad2_member) OR $account['access_cups']
   $data['match']['teamnr'] = empty($squad2_member) ? 1 : 2;
   if ($data['match']['teamnr'] == 1 && empty($squad1_member)) $data['match']['teamnr'] = 0;
   
-  if (!empty($data['match']['teamnr']) && !empty($nothingyet)) {
-    $data['if']['nothingyet'] = true;
+  if (!empty($data['match']['teamnr']) && $nothingyet)
+  {
+  	// only show "enter result" if both teams are known
+  	if ($data['match']['squad1_id'] != CS_CUPS_TEAM_UNKNOWN && $data['match']['squad2_id'] != CS_CUPS_TEAM_UNKNOWN)
+    	$data['if']['nothingyet'] = true;
   } elseif ((!empty($squad1_member) && empty($data['match']['cupmatches_accepted1'])) || (!empty($squad2_member) && empty($data['match']['cupmatches_accepted2']))) {
     $data['if']['accept'] = true;
   } elseif (!empty($data['match']['cupmatches_accepted1']) && !empty($data['match']['cupmatches_accepted2'])) {

@@ -8,7 +8,8 @@ $cs_lang['cup'] = 'Cup';
 
 // Center
 $cs_lang['center'] = 'Center';
-$cs_lang['take_part_in_cups'] = 'You are currently participating in %s Cups.';
+$cs_lang['take_part_in_cups'] = 'You are currently participating in %s cups.';
+$cs_lang['took_part_in_cups'] = 'You participated in %s cups.';
 
 $cs_lang['game'] = 'Game';
 $cs_lang['next_match'] = 'Next match';
@@ -129,7 +130,7 @@ $cs_lang['winner_bracket'] = 'Winner Bracket';
 $cs_lang['enter_result'] = 'Enter a result';
 $cs_lang['accept_result'] = 'Confirm the result';
 $cs_lang['both_confirmed'] = 'The result has been confirmed by both teams.';
-$cs_lang['confirmed'] = 'Both teams confirmed the result.';
+$cs_lang['confirmed'] = 'Confirmed';
 $cs_lang['waiting'] = 'The result has to be confirmed by %s.';
 $cs_lang['waiting_both'] = 'No team has confirmed the result until now.';
 $cs_lang['edit_denied'] = 'Not all teams have been determined yet.';

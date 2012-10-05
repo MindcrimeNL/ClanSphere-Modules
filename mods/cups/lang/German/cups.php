@@ -9,6 +9,7 @@ $cs_lang['cup'] = 'Turnier';
 // Center
 $cs_lang['center'] = 'Zentrale';
 $cs_lang['take_part_in_cups'] = 'Sie nehmen derzeit an %s Turnieren teil.';
+$cs_lang['took_part_in_cups'] = 'Sie nahmen an %s Turnieren teil.';
 
 $cs_lang['game'] = 'Spiel';
 $cs_lang['next_match'] = 'N&auml;chste Begegnung';

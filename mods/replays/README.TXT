@@ -1,5 +1,5 @@
 
-Date: 2011-12-13
+Date: 2012-09-27
 
 Mindcrime's replays module
 ==========================
@@ -15,7 +15,7 @@ This module upgrades the standard replays module with the following extra's:
 	- Defense of the Ancients (DotA)
 	- StarCraft II: Wings of Liberty (SC2)
 	
-	An small example plugin extension is included.
+	A small example plugin extension is included.
 	
 - Accessibility:
   - Added access field: It is possible to deny access for specific user levels
@@ -29,7 +29,7 @@ Many thanks to the creators and coders of the individual parsers.
 
 In this package the following external code was used:
 
-1) DotA CDP Replay Parser v1.4.3
+1) DotA CDP Replay Parser v1.4.4
 ================================
 
 This is a replay parser for DotA.
