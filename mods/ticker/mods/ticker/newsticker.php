@@ -31,7 +31,7 @@ $news_loop = count($cs_news);
 $cachedata = '';
 if($ticker_opt['max_news'] == 1)
 {
-	$data['news']['date'] = cs_date('unix',$cs_news['news_time'],1) . ': ';
+	$data['news']['date'] = cs_date('unix',$cs_news['news_time'],0);
 	$data['news']['headline'] = cs_link($cs_news['news_headline'],'news','view','id=' . $cs_news['news_id']);
 	$cachedata .= cs_subtemplate(__FILE__,$data,'ticker','newsticker');
 }
@@ -39,7 +39,7 @@ else
 {
 	for ($run = 0; $run < $news_loop; $run++)
 	{
-		$data['news']['date'] = cs_date('unix',$cs_news[$run]['news_time'],1) . ': ';
+		$data['news']['date'] = cs_date('unix',$cs_news[$run]['news_time'],0);
 		$data['news']['headline'] = cs_link($cs_news[$run]['news_headline'],'news','view','id=' . $cs_news[$run]['news_id']);
 		$cachedata .= cs_subtemplate(__FILE__,$data,'ticker','newsticker');
 		$end = $run < ($news_loop - 1) ? ' ' . $ticker_opt['separator'] . ' ' : '';

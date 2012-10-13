@@ -7,8 +7,8 @@
 $cs_lang = cs_translate('ticker','translate');
 
 $mod_info['name']	  = $cs_lang['mod_name'];
-$mod_info['version']  = '2010.0.0';
-$mod_info['released'] = '2010-09-19';
+$mod_info['version']  = '2011.x.x';
+$mod_info['released'] = '2012-05-10';
 $mod_info['creator']  = 'Mindcrime (original by flow)';
 $mod_info['team']	  = 'GaB e.V.';
 $mod_info['url']	  = 'http://www.gab-clan.org/';

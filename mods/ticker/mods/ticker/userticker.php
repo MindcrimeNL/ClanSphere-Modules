@@ -15,7 +15,7 @@ $cs_users	= cs_sql_select(__FILE__,'users',$select,$where,$order,0,$ticker_opt['
 $users_loop	= count($cs_users);
 
 
-if($ticker_opt['max_user'] == 1)
+if ($ticker_opt['max_user'] == 1)
 {
 	echo cs_link($cs_users['users_nick'],'users','view','id=' . $cs_users['users_id']);
 }
