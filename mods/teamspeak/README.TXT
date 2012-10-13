@@ -4,7 +4,7 @@ INTRODUCTION
 REMEMBER: THIS IS A BETA!
 
 This is a general TeamSpeak module for ClanSphere v2009.0.3
-or ClanSpher v2011.0.0 for TS2 and TS3 servers.
+or ClanSphere v201x.x.x for TS2 and TS3 servers.
 
 Since TS3 does not use login/password anymore, the create/delete
 account is different on TS3. You get a token for entering the
