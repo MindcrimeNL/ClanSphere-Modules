@@ -154,6 +154,7 @@ class tss
 			break;
 		case self::VERSION_TS3:
 			require_once('mods/teamspeak/classes/ts3admin.0.1.5.class.php');
+			// require_once('mods/teamspeak/classes/ts3admin.0.6.1.class.php');
 			$this->_tssclass = new ts3admin();
 			break;
 		}
@@ -228,7 +229,10 @@ class tss
 			if (!empty($udp) && !ctype_digit($udp))
 				$udp = self::UDP_DEFAULT_TS3;
 			if ($this->_tssclass->connect($addr, $tcp, $timeout))
+				// 0.1.5
 				if ($this->_tssclass->selectServerByPort($udp))
+				// 0.6.1
+				// if ($this->_tssclass->selectServer($udp, 'port'))
 				{
 					/* try to determine the admin, normal and guest server groups for this virtual server */
 					if ($this->initServerGroups() && $this->initChannelGroups())
@@ -262,7 +266,10 @@ class tss
 			return $this->_tssclass->select($udp);
 			break;
 		case self::VERSION_TS3:
+			// 0.1.5
 			return $this->_tssclass->selectServerByPort($udp);
+			// 0.6.1
+			// return $this->_tssclass->selectServer($udp, 'port');
 			break;
 		}
 	}
