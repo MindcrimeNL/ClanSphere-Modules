@@ -4,7 +4,7 @@
 // 2007-08-13
 // based on the Tickermodule from Mr.AndersoN
 
-function marquee($func,$amount = 0,$delay = 0,$direction = 0) {
+function cs_ticker_marquee($func,$amount = 0,$delay = 0,$direction = 0) {
 
 	if(empty($func)) {
 		return '</marquee>';
@@ -14,8 +14,9 @@ function marquee($func,$amount = 0,$delay = 0,$direction = 0) {
 		$var = '<marquee ';
 		$var.= empty($amount) ? 'scrollamount="0" ' : 'scrollamount="' . $amount . '" ';
 		$var.= empty($delay) ? 'scrolldelay="0" ' : 'scrolldelay="' . $delay . '" ';
-		if(!empty($direction)) {
-		$var .= 'direction="' . $direction . '"';
+		if(!empty($direction))
+		{
+			$var .= 'direction="' . $direction . '" ';
 		}
 		if(!empty($opt['stop_mo'])) {
 		$var .= 'onMouseOver="this.stop()" onMouseOut="this.start()"';
@@ -24,7 +25,7 @@ function marquee($func,$amount = 0,$delay = 0,$direction = 0) {
 	}
 }
 
-function ticker_features($name) {
+function cs_ticker_features($name) {
 
 	$cs_lang = cs_translate('system/abcodes');
 
@@ -73,7 +74,7 @@ function ticker_features($name) {
 }
 
 
-function ticker_parse($ticker_string)
+function cs_ticker_parse($ticker_string)
 {
 	$allowed = array('news', 'user', 'files', 'online', 'board', 'wars', 'warsnext');
 	/* we need to call cs_abcode_load before using any cs_abcode_xxx function */

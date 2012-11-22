@@ -65,7 +65,7 @@ if(!empty($error) OR !isset($_POST['submit'])) {
 	$data['ticker']['ticker_direction'] = cs_dropdown('ticker_direction','name',$direction,$cs_ticker['ticker_direction']); 
 	$data['ticker']['ticker_amount'] = $cs_ticker['ticker_amount']; 
 	$data['ticker']['ticker_delay'] = $cs_ticker['ticker_delay'];
-	$data['ticker']['ticker_features'] = ticker_features('ticker_content');
+	$data['ticker']['ticker_features'] = cs_ticker_features('ticker_content');
 	$data['ticker']['ticker_content'] = $cs_ticker['ticker_content'];
 
   $data['ticker']['id'] = $ticker_id;

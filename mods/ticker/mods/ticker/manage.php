@@ -38,9 +38,9 @@ for($run=0; $run<$ticker_loop; $run++) {
   $data['tickers'][$run]['amount'] = $cs_ticker[$run]['ticker_amount'];
   $data['tickers'][$run]['delay'] = $cs_ticker[$run]['ticker_delay'];
   
-  $data['tickers'][$run]['preview'] = marquee(1,$cs_ticker[$run]['ticker_amount'],$cs_ticker[$run]['ticker_delay'],$cs_ticker[$run]['ticker_direction'])
-  			.ticker_parse($cs_ticker[$run]['ticker_content'])
-  			.marquee(0);
+  $data['tickers'][$run]['preview'] = cs_ticker_marquee(1,$cs_ticker[$run]['ticker_amount'],$cs_ticker[$run]['ticker_delay'],$cs_ticker[$run]['ticker_direction'])
+  			.cs_ticker_parse($cs_ticker[$run]['ticker_content'])
+  			.cs_ticker_marquee(0);
 	$status = ($active_id['options_value'] == $cs_ticker[$run]['ticker_id'] ? 1 : 0);
 	switch ($status) {
 		case 0:
