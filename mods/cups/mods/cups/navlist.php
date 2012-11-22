@@ -12,7 +12,8 @@ $count_cups = count($data['cups']);
 for ($i = 0; $i < $count_cups; $i++) {
   $data['cups'][$i]['view_url'] = cs_url('cups','view','id=' . $data['cups'][$i]['cups_id']);
   if (strlen($data['cups'][$i]['cups_name']) > $cs_option['max_headline'])
-  	$data['cups'][$i]['cups_name'] = cs_textcut($data['cups'][$i]['cups_name'], $options['max_headline']);
+  	$data['cups'][$i]['cups_name'] = cs_secure(cs_textcut($data['cups'][$i]['cups_name'], $options['max_headline']));
+  $data['cups'][$i]['cups_title'] = cs_secure($data['cups'][$i]['cups_name']);
   $data['cups'][$i]['cups_start'] = cs_date('unix',$data['cups'][$i]['cups_start']);
 }
 

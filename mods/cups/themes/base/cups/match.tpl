@@ -11,11 +11,11 @@
 <table class="forum" cellpadding="0" cellspacing="{page:cellspacing}" style="width:{page:width}">
   <tr>
     <td class="leftc">{icon:personal} {lang:team} 1</td>
-    <td class="leftb">{match:team1}{if:adminconfirm} ({lang:confirmed}: {match:time1}){stop:adminconfirm}</td>
+    <td class="leftb">{match:team1}{if:adminconfirm}{if:confirm1} ({lang:confirmed}: {match:time1}){stop:confirm1}{stop:adminconfirm}</td>
   </tr>
   <tr>
     <td class="leftc">{icon:personal} {lang:team} 2</td>
-    <td class="leftb">{match:team2}{if:adminconfirm} ({lang:confirmed}: {match:time2}){stop:adminconfirm}</td>
+    <td class="leftb">{match:team2}{if:adminconfirm}{if:confirm2} ({lang:confirmed}: {match:time2}){stop:confirm2}{stop:adminconfirm}</td>
   </tr>
   <tr>
     <td class="leftc">{icon:kreversi} {lang:cup}</td>
