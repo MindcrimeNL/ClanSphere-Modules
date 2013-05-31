@@ -177,7 +177,7 @@ class ClanSphere_Convert_Webspell
 			return;
 		}
 
-		$cs_option = cs_sql_option(__FILE, 'news');
+		$cs_option = cs_sql_option(__FILE__, 'news');
 		$this->_abcode = explode(',', $cs_option['abcode']);
 
 		$this->_statistics['news'] = 0;
