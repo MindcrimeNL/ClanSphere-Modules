@@ -1,5 +1,5 @@
 
-Date: 2012-09-27
+Date: 2013-06-04
 
 Mindcrime's replays module
 ==========================
@@ -29,7 +29,7 @@ Many thanks to the creators and coders of the individual parsers.
 
 In this package the following external code was used:
 
-1) DotA CDP Replay Parser v1.4.4
+1) DotA CDP Replay Parser v1.4.6
 ================================
 
 This is a replay parser for DotA.
@@ -45,7 +45,8 @@ URL: http://luka.zabkar.net/?page_id=107
 ================================
 
 This is a replay parser for SC2.
-It is still actively developed.
+Currently it is not actively developed. The last version does not work
+with newer SC2 patches or SC2 HotS.
 One small modification was made to the code to fix a PHP warning.
 Patch date: 2011-10-02 (SC2 1.4.1)
 

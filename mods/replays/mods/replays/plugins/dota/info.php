@@ -4,7 +4,7 @@
 
 /* support for which cts version */
 if (!defined('W3G_CTS_VERSION'))
-  define('W3G_CTS_VERSION', '1.4.4');
+  define('W3G_CTS_VERSION', '1.4.6');
 
 $cs_lang = cs_translate('replays_dota');
 
