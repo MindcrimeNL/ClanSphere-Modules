@@ -3,6 +3,8 @@ CREATE TABLE {pre}_replays_dota (
   replays_id int(8) NOT NULL default '0',
 	replays_dota_w3type varchar(4) NOT NULL default '',
   replays_dota_version varchar(20) NOT NULL default '',
+  replays_dota_versionmm int(8) NOT NULL default 668,
+  replays_dota_select_mode varchar(2) NOT NULL default 'cm',
   replays_dota_length int(8) NOT NULL default '0',
   replays_dota_gametype varchar(40) NOT NULL default '',
   replays_dota_mapname varchar(80) NOT NULL default '',

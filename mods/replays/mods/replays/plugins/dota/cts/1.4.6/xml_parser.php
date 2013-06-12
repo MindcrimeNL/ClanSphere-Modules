@@ -11,7 +11,7 @@ Last revision:
   * @author Seven
   * @time 15.2.2009
   */
-  class xml_data {
+  class dota_xml_data {
     private $xmlparser;
     
     public $Heroes;
@@ -53,7 +53,7 @@ Last revision:
         xml_parser_free($this->xmlparser);    
     }
     
-    public function xml_data() {
+    public function __construct() {
         $this->current = ""; 
         $this->prev = "";
         $this->inItem = false;
@@ -129,7 +129,7 @@ Last revision:
             switch ($this->item['TYPE']) {
                 
                 case 'HERO':                 
-                    $tmp = new Hero($this->item['NAME'],
+                    $tmp = new DotaHero($this->item['NAME'],
                                     (isset($this->item['ART']) ? $this->item['ART'] : ""), 
                                     (isset($this->item['COMMENT']) ? $this->item['COMMENT'] : ""),  
                                     (isset($this->item['COST']) ? $this->item['COST'] : ""),
@@ -145,7 +145,7 @@ Last revision:
                     }
                     break;
                 case 'ITEM':
-                    $tmp = new Item($this->item['NAME'],
+                    $tmp = new DotaItem($this->item['NAME'],
                                     (isset($this->item['ART']) ? $this->item['ART'] : ""), 
                                     (isset($this->item['COMMENT']) ? $this->item['COMMENT'] : ""),  
                                     (isset($this->item['COST']) ? $this->item['COST'] : ""),
@@ -157,7 +157,7 @@ Last revision:
                 case 'ULTIMATE':
                 case 'SKILL':
                 case 'STAT':
-                    $tmp = new Skill($this->item['NAME'],
+                    $tmp = new DotaSkill($this->item['NAME'],
                                     (isset($this->item['ART']) ? $this->item['ART'] : ""), 
                                     (isset($this->item['COMMENT']) ? $this->item['COMMENT'] : ""),  
                                     (isset($this->item['COST']) ? $this->item['COST'] : ""),
@@ -179,7 +179,7 @@ Last revision:
   /**
   * @desc Superclass for Items, Heroes, Skills..
   */
-class Entity {
+class DotaEntity {
     private $Name;
     private $Art;
     private $Comment;
@@ -191,7 +191,7 @@ class Entity {
     
     public $extra;
     
-    public function Entity($Name, $Art, $Comment, $Cost, $Id, $ProperNames, $RelatedTo, $Type) {
+    public function DotaEntity($Name, $Art, $Comment, $Cost, $Id, $ProperNames, $RelatedTo, $Type) {
         $this->Name = $Name;
         $this->Art = $Art;
         $this->Cost = $Cost;
@@ -239,9 +239,9 @@ class Entity {
   /**
   * @desc Class for Hero type
   */
-  class Hero extends Entity {
-    public function Hero($Name, $Art, $Comment, $Cost, $Id, $ProperNames, $RelatedTo, $Type) {
-        $this->Entity($Name, $Art, $Comment, $Cost, $Id, $ProperNames, $RelatedTo, $Type);    
+  class DotaHero extends DotaEntity {
+    public function __construct($Name, $Art, $Comment, $Cost, $Id, $ProperNames, $RelatedTo, $Type) {
+        parent::__construct($Name, $Art, $Comment, $Cost, $Id, $ProperNames, $RelatedTo, $Type);    
     }
     
     public function parseRelated() {
@@ -252,18 +252,18 @@ class Entity {
   /**
   * @desc Class for Skill and Ultimates
   */
-  class Skill extends Entity {
-    public function Skill($Name, $Art, $Comment, $Cost, $Id, $ProperNames, $RelatedTo, $Type) {
-        $this->Entity($Name, $Art, $Comment, $Cost, $Id, $ProperNames, $RelatedTo, $Type);    
+  class DotaSkill extends DotaEntity {
+    public function __construct($Name, $Art, $Comment, $Cost, $Id, $ProperNames, $RelatedTo, $Type) {
+        parent::__construct($Name, $Art, $Comment, $Cost, $Id, $ProperNames, $RelatedTo, $Type);    
     } 
   }
   
   /**
   * @desc Class for Items
   */
-  class Item extends Entity {
-    public function Item($Name, $Art, $Comment, $Cost, $Id, $ProperNames, $RelatedTo, $Type) {
-        $this->Entity($Name, $Art, $Comment, $Cost, $Id, $ProperNames, $RelatedTo, $Type);    
+  class DotaItem extends DotaEntity {
+    public function __construct($Name, $Art, $Comment, $Cost, $Id, $ProperNames, $RelatedTo, $Type) {
+        parent::__construct($Name, $Art, $Comment, $Cost, $Id, $ProperNames, $RelatedTo, $Type);    
     } 
   }
   

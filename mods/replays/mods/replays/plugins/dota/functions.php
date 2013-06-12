@@ -5,6 +5,7 @@ if (!defined('W3G_CTS_VERSION'))
 
 /* we need these files to be able to unserialize the classes correctly */
 require_once('mods/replays/plugins/dota/cts/'.constant('W3G_CTS_VERSION').'/config.php'); 
+require_once('mods/replays/plugins/dota/cts/'.constant('W3G_CTS_VERSION').'/modes.php'); 
 require_once('mods/replays/plugins/dota/cts/'.constant('W3G_CTS_VERSION').'/tools.php');
 require_once('mods/replays/plugins/dota/cts/'.constant('W3G_CTS_VERSION').'/xml_parser.php');
 	
@@ -53,7 +54,7 @@ function replays_plugins_view_dota($plugin, $replays_id) // TODO
 	$data['plugin']['fullname'] = $plugin['name'];
 
 	$data['lplugin']['map'] = $cs_lang['map'];
-	$data['plugin']['map'] = $plugin_row['replays_dota_mapname'];
+	$data['plugin']['map'] = cs_secure($plugin_row['replays_dota_mapname']);
 	$data['lplugin']['winner'] = $cs_lang['winner'];
 	if ($plugin_row['replays_dota_winner'] >= 0)
 		$winner = replays_plugins_dota_team_name_html($plugin_row, $plugin_row['replays_dota_winner'] + 1);
@@ -122,7 +123,7 @@ function replays_plugins_view_dota_details($plugin, $plugin_row, $cs_lang)
 			if ($hero['data'] instanceof DotaHero)
 			{
 				$data['details'][$count]['player_himage'] = 'mods/replays/plugins/dota/cts/'.constant('W3G_CTS_VERSION').'/'.$hero['data']->getArt();
-				$data['details'][$count]['player_hname'] = $hero['data']->getName();
+				$data['details'][$count]['player_hname'] = cs_secure($hero['data']->getName());
 			}
 			else
 			{
@@ -207,6 +208,11 @@ function replays_plugins_view_dota_details($plugin, $plugin_row, $cs_lang)
 		$ban = array();
 		$ban['bans'] = array();
 		$bcount = 0;
+		$mode = $plugin_row['replays_dota_select_mode'];
+		if ($mode == 'cd')
+			$num_bans = DotaModeCD::getBansPerTeam();
+		else
+			$num_bans = DotaModeCM::getBansPerTeam($plugin_row['replays_dota_versionmm']);
 		foreach ($bans as $hero)
 		{
 			if ($hero instanceof DotaHero)
@@ -215,10 +221,13 @@ function replays_plugins_view_dota_details($plugin, $plugin_row, $cs_lang)
 				$ban['bans'][$bcount]['ban_image'] = 'mods/replays/plugins/dota/cts/'.constant('W3G_CTS_VERSION').'/'.$hero->getArt();
 				$ban['bans'][$bcount]['ban_name'] = cs_secure($hero->getName());
 				$ban['bans'][$bcount]['ban_color'] = '#'.($hero->extra == 0 ? $plugin['options']['color_sentinel'] : $plugin['options']['color_scourge']); // sentinel / scourge
-        if ($bcount < constant('DOTA_REPLAY_NUM_OF_BANS')-1)
-          $ban['bans'][$bcount]['ban_extra'] = '-';
-        else
-          $ban['bans'][$bcount]['ban_extra'] = '';
+        $ban['bans'][$bcount]['ban_extra'] = '';
+				if ($bcount > 0)
+					$ban['bans'][$bcount-1]['ban_extra'] = '-';
+//        if ($bcount != 0 && ($bcount % $num_bans == 0))
+//        	$ban['bans'][$bcount]['ban_extra'] = '-';
+//				else
+//          $ban['bans'][$bcount]['ban_extra'] = '';
 				$bcount++;
 			}
 		}
@@ -418,6 +427,9 @@ function replays_plugins_view_dota_chat($plugin_row, $chatlog, $cs_lang)
 	$colors = replays_plugins_view_dota_player_colors($plugin_row);
 	foreach ($chatlog as $chat)
 	{
+		/* skip strange or private chat modes */
+		if (!isset($chat['mode']) || $chat['mode'] < 0 || $chat['mode'] > 4)
+			continue;
 		$data['chats'][$run] = array();
 		if (!isset($colors[$chat['player_name']]))
 		{
@@ -563,7 +575,7 @@ function replays_plugins_create_dota($plugin, $replays_id)
 	);
 	cs_sql_insert(__FILE__, 'replays_dota', array_keys($dotareplay), array_values($dotareplay));
 	$plugin_row = cs_sql_select(__FILE__, 'replays_dota', 'replays_dota_id', 'replays_id = '.$replays_id, 0, 0, 1, 0);
-	return replays_plugins_update_dota($plugin, $replays_id, $plugin_row['replays_dota_id'], $replay);
+	return replays_plugins_update_dota($plugin, $replays_id, $plugin_row['replays_dota_id'], $replay, null);
 } // function replays_plugins_create_dota
 
 /**
@@ -657,11 +669,20 @@ function replays_plugins_update_dota($plugin, $replays_id, $plugin_id, $replay, 
 	$mapname = substr($replay->game['map'],5,strlen($replay->game['map'])-5);
 	if (substr($mapname,0,10) == 'Downloads\\')
 		$mapname = substr($mapname,15);
+	else if (substr($mapname,0,10) == 'downloads\\')
+		$mapname = substr($mapname,14);
 	else if (substr($mapname,0,9) == 'Download\\')
 		$mapname = substr($mapname,14);
-
+	else if (substr($mapname,0,9) == 'download\\')
+		$mapname = substr($mapname,14);
+	
 	$replaydota['replays_dota_w3type'] = ''.$replay->header['ident'];
-	$replaydota['replays_dota_version'] = 'v1.'.sprintf('%02d', $replay->header['major_v']);
+	$replaydota['replays_dota_version'] = 'v'.sprintf('%d.%d',$replay->game['dota_major'], $replay->game['dota_minor']);
+	// we need this for picks/bans
+	$replaydota['replays_dota_versionmm'] = $replay->game['dota_major'] * 100 + $replay->game['dota_minor'];
+	$replaydota['replays_dota_select_mode'] = 'cm';
+	if ($replay->dotaMode instanceof DotaModeCD)
+		$replaydota['replays_dota_select_mode'] = 'cd';
 	$replaydota['replays_dota_length'] = ''.$replay->header['length'] / 1000;
 	$replaydota['replays_dota_gametype'] = ''.$replay->game['type'];
 	$replaydota['replays_dota_mapname'] = cs_encode($mapname);

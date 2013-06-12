@@ -4,7 +4,7 @@
 define('DOTA_REPLAY_DEBUG_ON', false);
 
 // Used for CM-mode picking, for now
-//define('DOTA_REPLAY_NUM_OF_BANS', 8); - Now handled in modes.php
+// define('DOTA_REPLAY_NUM_OF_BANS', 8); - Now handled in modes.php
 define('DOTA_REPLAY_NUM_OF_PICKS', 10);
 
 // to know when there is a need to load next block
@@ -19,10 +19,10 @@ define('DOTA_REPLAY_ACTION_DELAY', 1000);
 define('DOTA_REPLAY_XML_MAP_BASE_NAME', 'dota.allstars.v');
 
 // Map folder, no trailing slash
-define('DOTA_REPLAY_MAPS_FOLDER', 'mods/replays/plugins/dota/cts/1.4.1/maps');
+define('DOTA_REPLAY_MAPS_FOLDER', 'mods/replays/plugins/dota/cts/'.constant('W3G_CTS_VERSION').'/maps');
 
 // Default .xml file - make sure it exists.
-define('DOTA_REPLAY_DEFAULT_XML_MAP', 'dota.allstars.v6.68.xml'); 
+define('DOTA_REPLAY_DEFAULT_XML_MAP', 'dota.allstars.v6.76.xml'); 
 
 // Verbose debug output
 define('DOTA_REPLAY_DEBUG_ON_TOOLS', false);

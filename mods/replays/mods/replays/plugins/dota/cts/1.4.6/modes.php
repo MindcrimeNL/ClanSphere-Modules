@@ -29,7 +29,7 @@ class DotaGenericMode {
 * Short: CD
 */
 class DotaModeCD extends DotaGenericMode {
-    private $bansPerTeam = 2;
+    private static $bansPerTeam = 2;
     private $heroPool;
     private $heroBans;
     private $heroPicks;
@@ -42,8 +42,8 @@ class DotaModeCD extends DotaGenericMode {
         $this->fullName = "Captain's draft";
     }
     
-    public function getBansPerTeam() {
-        return $this->bansPerTeam;
+    public static function getBansPerTeam() {
+        return self::bansPerTeam;
     }
     
     /**
@@ -92,7 +92,7 @@ class DotaModeCD extends DotaGenericMode {
 * Short: CM
 */
 class DotaModeCM extends DotaGenericMode {
-    private $bansPerTeam = 2;
+    private static $bansPerTeam = 2;
     private $heroBans;
     private $heroPicks;
 
@@ -115,7 +115,7 @@ class DotaModeCM extends DotaGenericMode {
 		 *
 		 * @return Number of hero bans per team
 		 */
-    public function getBansPerTeam($version = 675) {
+    public static function getBansPerTeam($version = 675) {
             if($version < 668) {
                     return 4;
             }
@@ -123,7 +123,7 @@ class DotaModeCM extends DotaGenericMode {
                     // If we're dealing with versions post 6.68 bans are split either 3/2 or 2/3
                     // So initially bansPerTeam are set to either 3 or 2 for phase one.
                     // Eventually bansPerTeam are set to 5 indicating we're in phase 2, in that case we return 5 as bans per team.
-                    if(5 !== $this->bansPerTeam) {
+                    if(5 !== self::$bansPerTeam) {
                             // First phase bans
                                 if($version > 668 && $version < 675) {
                                         return 3;
