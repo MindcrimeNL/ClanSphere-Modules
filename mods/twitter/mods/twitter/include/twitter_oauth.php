@@ -63,7 +63,7 @@ class Twitter
 	const DEBUG = false;
 
 	// url for the twitter-api
-	const API_URL = 'https://api.twitter.com/1';
+	const API_URL = 'https://api.twitter.com/1.1';
 	const SEARCH_API_URL = 'https://search.twitter.com';
 	const SECURE_API_URL = 'https://api.twitter.com';
 
@@ -363,7 +363,7 @@ class Twitter
 	 * @param	bool[optional] $expectJSON		Do we expect JSON.
 	 * @param	bool[optional] $returnHeaders	Should the headers be returned?
 	 */
-	private function doCall($url, array $parameters = null, $authenticate = false, $method = 'GET', $filePath = null, $expectJSON = true, $returnHeaders = false)
+	private function doCall($url, array $parameters = null, $authenticate = true, $method = 'GET', $filePath = null, $expectJSON = true, $returnHeaders = false)
 	{
 		// allowed methods
 		$allowedMethods = array('GET', 'POST');
