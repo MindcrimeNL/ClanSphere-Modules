@@ -6,7 +6,7 @@ $cs_lang = cs_translate('cups');
 
 include_once('mods/cups/functions.php');
 
-$cups_id = isset($_GET['id']) ? (int) $_GET['id'] : (isset($_POST['id']) ? (int) $_POST['id'] : 0);
+$cups_id = (isset($_GET['id']) && !empty($_GET['id'])) ? (int) $_GET['id'] : (isset($_POST['id']) ? (int) $_POST['id'] : 0);
 
 
 $data['seed']['error'] = '';

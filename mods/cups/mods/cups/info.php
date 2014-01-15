@@ -4,7 +4,7 @@
 
 /* Cup and grid image generation code:
  *
- * Copyright (c) 2010, Wetzels Holding BV, Remy Wetzels <mindcrime@gab-clan.org>
+ * Copyright (c) 2010-2014, Wetzels Holding BV, Remy Wetzels <mindcrime@gab-clan.org>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -37,13 +37,12 @@
  * ClanSphere about section of the code.
  */
 
-// $Id: info.php 4596 2010-10-16 18:43:42Z Fr33z3m4n $
 
 $cs_lang = cs_translate('cups');
 
 $mod_info['name']    = $cs_lang['mod_name'];
 $mod_info['version']  = '1.0';
-$mod_info['released']  = '2012-11-22';
+$mod_info['released']  = '2014-01-15';
 $mod_info['creator'] = 'Mindcrime';
 $mod_info['team']    = 'Geh aB Clan';
 $mod_info['url']    = 'www.gab-clan.org';
