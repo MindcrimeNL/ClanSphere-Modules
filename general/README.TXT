@@ -14,6 +14,9 @@ Bets module requires:
 Cups module requires:
 - system/runstartup/tools.php
 
+Replays module requires:
+- system/runstartup/tools.php
+
 IMPORTANT:
 ----------
 
