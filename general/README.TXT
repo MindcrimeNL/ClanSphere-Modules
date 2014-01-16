@@ -11,6 +11,9 @@ TeamSpeak module requires:
 Bets module requires:
 - system/runstartup/tools.php
 
+Cups module requires:
+- system/runstartup/tools.php
+
 IMPORTANT:
 ----------
 
